@@ -121,6 +121,41 @@
           }
         }
       }
+    },
+    "ngx-admin-table": {
+      "root": "projects/ngx-admin-table",
+      "sourceRoot": "projects/ngx-admin-table/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-admin-table/tsconfig.lib.json",
+            "project": "projects/ngx-admin-table/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-admin-table/src/test.ts",
+            "tsConfig": "projects/ngx-admin-table/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-admin-table/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-admin-table/tsconfig.lib.json",
+              "projects/ngx-admin-table/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "admin-table"

@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+table {
+    width: 100%;
+  }
+
+  th{
+    max-width: 0px;
+    min-width: 150px;
+  }
+  td{
+    max-width: 0px;
+    min-width: 150px;
+  }
+.row{
+  cursor: pointer;
+}
+
+.row:hover {
+    background: #f5f5f5;
+  }
+  .column{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    color: #000;
+  }
+  .cell{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }

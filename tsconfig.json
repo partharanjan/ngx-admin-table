@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-admin-table": [
+        "dist/ngx-admin-table"
+      ],
+      "ngx-admin-table/*": [
+        "dist/ngx-admin-table/*"
+      ]
+    }
   }
 }

@@ -1,0 +1,53 @@
+<div class="ngx-admin-table-container">
+    <!--loading-->
+    <div class="ngx-admin-table-loading-shade" *ngIf="_loading">
+        <ngx-color-spinner></ngx-color-spinner>
+    </div>
+
+    <!--table-->
+    <div class="ngx-admin-table-content">
+        <table mat-table [dataSource]="_rows">
+            <ng-container matColumnDef="{{col}}" *ngFor="let col of _displayColumns">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="column">{{getColumnName(col)}}</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div [ngSwitch]="getColumnType(col)">
+
+                        <div class="cell" *ngSwitchCase="_columnType.Text">{{element[col]}}</div>
+
+                        <!--Yes no column-->
+                        <div class="cell" *ngSwitchCase="_columnType.YesNo">
+                            <mat-slide-toggle [checked]="element[col]" (toggleChange)="onSideToggleChaged(col,element)"></mat-slide-toggle>
+                        </div>
+                        <div class="cell" *ngSwitchCase="_columnType.Number">
+                            {{element[col] | number : '1.2-2'}}
+                        </div>
+                        <div class="cell" *ngSwitchCase="_columnType.Action">
+                            <div class="action-row">
+                                <button mat-icon-button (click)="actionClicked('edit',element)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="actionClicked('delete',element)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                                <button mat-button *ngFor="let action of actions" (click)="actionClicked(action,element)">
+                                    {{action}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="_displayColumns;sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: _displayColumns;" class="row"></tr>
+        </table>
+
+        <div *ngIf="_rows.length==0" class="no-record-round">
+            <div><strong>No record found.</strong></div>
+            <!-- <div>Click on <mat-icon>add</mat-icon> icon to add new record.</div> -->
+        </div>
+    </div>
+    <mat-paginator #paging [length]="_total" [pageSize]="10" [pageSizeOptions]="[5, 10, 15, 20]" (page)="onPaging($event)"></mat-paginator>
+</div>
