@@ -44,9 +44,8 @@
             <tr mat-row *matRowDef="let row; columns: _displayColumns;" class="row"></tr>
         </table>
 
-        <div *ngIf="_rows.length==0" class="no-record-round">
+        <div *ngIf="_rows.length==0 && !_loading" class="no-record-round">
             <div><strong>No record found.</strong></div>
-            <!-- <div>Click on <mat-icon>add</mat-icon> icon to add new record.</div> -->
         </div>
     </div>
     <mat-paginator #paging [length]="_total" [pageSize]="10" [pageSizeOptions]="[5, 10, 15, 20]" (page)="onPaging($event)"></mat-paginator>

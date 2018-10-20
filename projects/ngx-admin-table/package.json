@@ -1,8 +1,17 @@
 {
   "name": "ngx-admin-table",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "Basic admin table using material design",
+  "keywords" :["Table","Material Design","Admin"],
+  "license" : "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/partharanjan/ngx-admin-table"
+  },
+  "homepage" :"https://github.com/partharanjan",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "ngx-color-spinner":"^0.0.1"
   }
 }
