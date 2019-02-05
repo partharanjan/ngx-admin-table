@@ -23,6 +23,12 @@
       ],
       "ngx-admin-table/*": [
         "dist/ngx-admin-table/*"
+      ],
+      "ngx-grid": [
+        "dist/ngx-grid"
+      ],
+      "ngx-grid/*": [
+        "dist/ngx-grid/*"
       ]
     }
   }
