@@ -1,5 +1,3 @@
-import { from } from 'rxjs';
-
 /*
  * Public API Surface of ngx-admin-table
  */

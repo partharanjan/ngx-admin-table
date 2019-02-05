@@ -4,25 +4,25 @@ export enum NgxAdminTableColumnType {
     Text,
     Number,
     YesNo,
-    DateOnly,
-    TimeOnly,
+    Date,
+    Time,
     DateTime,
     Action
 }
 
 export class NgxAdminTableColumn {
     constructor() { }
-    id: String;
-    name: String;
+    id: string;
+    name: string;
     type: NgxAdminTableColumnType;
 }
 
 export interface INgxAdminTable {
     onTablePageChanged(page: PageEvent);
-    OnTableAction(data: any);
+    onTableAction(data: any);
 }
 
 export class NgxAdminTableResult<T>{
-    total:number;
-    items:T[];
+    total: number;
+    items: T[];
 }
